@@ -8,7 +8,7 @@ class VehiclesView extends StatefulWidget {
   const VehiclesView({super.key});
 
   @override
-  State<VehiclesView> createState() => VehiclesViewState();
+  State<VehiclesView> createState() => _VehiclesViewState();
 }
 
 class _VehiclesViewState extends State<VehiclesView> {
@@ -78,7 +78,9 @@ class _VehiclesViewState extends State<VehiclesView> {
                                   MaterialPageRoute(
                                     builder: (context) => UpdateView(
                                       vehicleId: id,
+                                      year: vehicles[index].year,
                                       model: vehicles[index].model,
+                                      plate: vehicles[index].plate,
                                     ),
                                   ),
                                 );

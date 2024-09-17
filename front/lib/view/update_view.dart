@@ -4,12 +4,16 @@ import '../service/vehicle.dart';
 
 class UpdateView extends StatefulWidget {
   final int vehicleId;
-  final String name;
+  final int year;
+  final String model;
+  final String plate;
 
   UpdateView({
     super.key,
     required this.vehicleId,
-    required this.name,
+    required this.year,
+    required this.model,
+    required this.plate,
   });
 
   @override
@@ -88,7 +92,7 @@ class _UpdateViewState extends State<UpdateView> {
                     id: widget.vehicleId,
                     year: widget.year,
                     model: widget.model,
-                    plate: nameController.plate,
+                    plate: widget.plate,
                   );
                   Navigator.pop(context);
                 },
