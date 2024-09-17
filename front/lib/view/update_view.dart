@@ -56,7 +56,7 @@ class _UpdateViewState extends State<UpdateView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 150,
+              width: 100,
               child: TextFormField(
                 controller: idController,
                 decoration: const InputDecoration(labelText: 'Id'),
@@ -64,28 +64,28 @@ class _UpdateViewState extends State<UpdateView> {
               ),
             ),
             SizedBox(
-              width: 150,
+              width: 100,
               child: TextFormField(
                 controller: yearController,
                 decoration: const InputDecoration(labelText: 'Ano'),
               ),
             ),
             SizedBox(
-              width: 150,
+              width: 100,
               child: TextFormField(
                 controller: modelController,
                 decoration: const InputDecoration(labelText: 'Modelo'),
               ),
             ),
             SizedBox(
-              width: 150,
+              width: 100,
               child: TextFormField(
                 controller: plateController,
                 decoration: const InputDecoration(labelText: 'Placa'),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(5.0),
               child: ElevatedButton(
                 onPressed: () async {
                   await _vehicleService.updateData(

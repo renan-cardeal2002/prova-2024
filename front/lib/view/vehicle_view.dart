@@ -52,7 +52,7 @@ class _VehiclesViewState extends State<VehiclesView> {
               itemCount: vehicles.length,
               itemBuilder: (context, index) {
                 return SizedBox(
-                  height: 50,
+                  height: 100,
                   child: Card(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
