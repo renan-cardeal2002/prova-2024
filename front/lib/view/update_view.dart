@@ -49,14 +49,14 @@ class _UpdateViewState extends State<UpdateView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Atualizar usuário'),
+        title: const Text('Atualizar veículo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: idController,
                 decoration: const InputDecoration(labelText: 'Id'),
@@ -64,21 +64,21 @@ class _UpdateViewState extends State<UpdateView> {
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: yearController,
                 decoration: const InputDecoration(labelText: 'Ano'),
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: modelController,
                 decoration: const InputDecoration(labelText: 'Modelo'),
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: plateController,
                 decoration: const InputDecoration(labelText: 'Placa'),

@@ -21,35 +21,41 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Adicionar novo usuário'),
+        title: const Text('Adicionar novo veículo'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 100,
-              child: TextFormField(
-                controller: idController,
-                decoration: const InputDecoration(labelText: 'Id'),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const VehiclesView()),
+                  );
+                },
+                child: const Text('Ir para listagem'),
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: yearController,
                 decoration: const InputDecoration(labelText: 'Ano'),
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: modelController,
                 decoration: const InputDecoration(labelText: 'Modelo'),
               ),
             ),
             SizedBox(
-              width: 100,
+              width: 200,
               child: TextFormField(
                 controller: plateController,
                 decoration: const InputDecoration(labelText: 'Placa'),
@@ -67,22 +73,9 @@ class _HomeViewState extends State<HomeView> {
                   modelController.clear();
                   plateController.clear();
                 },
-                child: const Text('Enviar'),
+                child: const Text('Salvar'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const VehiclesView()),
-                  );
-                },
-                child: const Text('Ir para listagem'),
-              ),
-            )
           ],
         ),
       ),
