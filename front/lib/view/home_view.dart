@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:front/service/vehicle.dart';
-import 'package:front/view/vehicle_view.dart';
+
+import '../service/vehicle.dart';
+import 'vehicle_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -59,10 +60,12 @@ class _HomeViewState extends State<HomeView> {
               child: ElevatedButton(
                 onPressed: () {
                   _vehicleService.postData(
-                      name: nameController.text,
-                      id: int.tryParse(idController.text) ?? 0);
-                  nameController.clear();
-                  idController.clear();
+                      year: int.tryParse(yearController.text) ?? 0,
+                      model: modelController.text,
+                      plate: plateController.text);
+                  yearController.clear();
+                  modelController.clear();
+                  plateController.clear();
                 },
                 child: const Text('Enviar'),
               ),
@@ -73,7 +76,8 @@ class _HomeViewState extends State<HomeView> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const VehiclesView()),
+                    MaterialPageRoute(
+                        builder: (context) => const VehiclesView()),
                   );
                 },
                 child: const Text('Ir para listagem'),

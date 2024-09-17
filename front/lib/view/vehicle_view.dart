@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:front/model/vehicle.dart';
-import 'package:front/service/vehicle.dart';
 import 'package:front/view/update_view.dart';
+
+import '../model/vehicle.dart';
+import '../service/vehicle.dart';
 
 class VehiclesView extends StatefulWidget {
   const VehiclesView({super.key});
@@ -43,7 +44,7 @@ class _VehiclesViewState extends State<VehiclesView> {
             );
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
             return const Center(
-              child: Text('Nenhum usuário encontrado'),
+              child: Text('Nenhum veículo encontrado'),
             );
           } else {
             List<VehicleModel> vehicles = snapshot.data!;
@@ -57,7 +58,7 @@ class _VehiclesViewState extends State<VehiclesView> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Name: ${vehicles[index].name}",
+                          "Modelo: ${vehicles[index].model}",
                         ),
                         Row(
                           children: [
@@ -77,7 +78,7 @@ class _VehiclesViewState extends State<VehiclesView> {
                                   MaterialPageRoute(
                                     builder: (context) => UpdateView(
                                       vehicleId: id,
-                                      name: vehicles[index].name,
+                                      model: vehicles[index].model,
                                     ),
                                   ),
                                 );

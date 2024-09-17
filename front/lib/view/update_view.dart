@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:front/service/vehicle.dart';
+
+import '../service/vehicle.dart';
 
 class UpdateView extends StatefulWidget {
   final int vehicleId;
@@ -17,20 +18,26 @@ class UpdateView extends StatefulWidget {
 
 class _UpdateViewState extends State<UpdateView> {
   final VehicleService _vehicleService = VehicleService();
-  late TextEditingController nameController;
   late TextEditingController idController;
+  late TextEditingController yearController;
+  late TextEditingController modelController;
+  late TextEditingController plateController;
 
   @override
   void initState() {
     super.initState();
-    nameController = TextEditingController(text: widget.name);
     idController = TextEditingController(text: widget.vehicleId.toString());
+    yearController = TextEditingController(text: widget.year.toString());
+    modelController = TextEditingController(text: widget.model);
+    plateController = TextEditingController(text: widget.plate);
   }
 
   @override
   void dispose() {
-    nameController.dispose();
     idController.dispose();
+    yearController.dispose();
+    modelController.dispose();
+    plateController.dispose();
     super.dispose();
   }
 
@@ -55,8 +62,22 @@ class _UpdateViewState extends State<UpdateView> {
             SizedBox(
               width: 150,
               child: TextFormField(
-                controller: nameController,
-                decoration: const InputDecoration(labelText: 'Nome'),
+                controller: yearController,
+                decoration: const InputDecoration(labelText: 'Ano'),
+              ),
+            ),
+            SizedBox(
+              width: 150,
+              child: TextFormField(
+                controller: modelController,
+                decoration: const InputDecoration(labelText: 'Modelo'),
+              ),
+            ),
+            SizedBox(
+              width: 150,
+              child: TextFormField(
+                controller: plateController,
+                decoration: const InputDecoration(labelText: 'Placa'),
               ),
             ),
             Padding(
@@ -65,7 +86,9 @@ class _UpdateViewState extends State<UpdateView> {
                 onPressed: () async {
                   await _vehicleService.updateData(
                     id: widget.vehicleId,
-                    name: nameController.text,
+                    year: widget.year,
+                    model: widget.model,
+                    plate: nameController.plate,
                   );
                   Navigator.pop(context);
                 },
